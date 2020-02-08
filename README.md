@@ -11,4 +11,4 @@ This project is primarily built in python 3.7.1 and involves packages which need
 pip install -r requirements.txt
 ```
 
-Following this step you cna start using the project. We suggest starting with the scraper.py code.
+Following this step you can start using the project. We suggest starting with the scraper.py code.
