@@ -9,7 +9,6 @@ eastern = pytz.timezone('US/Eastern')
 def main():
     stock_to_pull = "RDFN"
     base_url = "https://finance.yahoo.com/quote/"+stock_to_pull+"/options?p="+stock_to_pull+"&straddle=false"
-
     res = requests.get(base_url)
     soup = BeautifulSoup(res.text, features="lxml")
 
@@ -34,8 +33,6 @@ def main():
         call_det["curr_time"] = eastern.localize(dt.now()).strftime('%Y-%m-%d %H:%M:%S')
         calls_df = calls_df.append(call_det,ignore_index=True)
     print(calls_df)
-
-
 
 if __name__ == "__main__":
     main()
