@@ -1,0 +1,5 @@
+requests==2.20.1
+BeautifulSoup==4.6.3
+soupsieve==1.9.5
+pytz==2018.7
+pandas==0.23.4

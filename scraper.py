@@ -1,5 +1,4 @@
 import requests
-import json
 from bs4 import BeautifulSoup
 import soupsieve as sv
 from datetime import datetime as dt
