@@ -20,9 +20,10 @@ def main():
         news_det["headline"] = article.find("div", {"class" : "symbol_article"}).text
         spans = article.find("div", {"class" : "date_on_by"}).findChildren("span", {"class": ""})
         for span in spans:
-            
+            if(span.text != "SA News"):
+                news_det["release_date"] = span.text
         #news_det["release_dt"] = article.find("div", {"class" : "date_on_by"}).text
-        #print(news_det)
+        print(news_det)
         print('\n\n')
 
 
