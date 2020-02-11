@@ -15,7 +15,13 @@ def main():
     technical_table = soup.find("div", {"id": "quote-summary"})
     technical_dets = {}
     technical_dets["prev_close"] = technical_table.find("td", {"data-test": "PREV_CLOSE-value"}).text
-
+    technical_dets["open"] = technical_table.find("td", {"data-test": "OPEN-value"}).text
+    technical_dets["bid_val"] = technical_table.find("td", {"data-test": "BID-value"}).text.split(" x ")[0]
+    technical_dets["bid_quant"] = technical_table.find("td", {"data-test": "BID-value"}).text.split(" x ")[1]
+    technical_dets["ask_val"] = technical_table.find("td", {"data-test": "ASK-value"}).text.split(" x ")[0]
+    technical_dets["ask_quant"] = technical_table.find("td", {"data-test": "ASK-value"}).text.split(" x ")[1]
+    #technical_dets["prev_close"] = technical_table.find("td", {"data-test": "PREV_CLOSE-value"}).text
+    #technical_dets["prev_close"] = technical_table.find("td", {"data-test": "PREV_CLOSE-value"}).text
 
     print(technical_dets)
 
