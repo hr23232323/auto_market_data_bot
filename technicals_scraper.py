@@ -22,6 +22,8 @@ def main():
     technical_dets["ask_quant"] = technical_table.find("td", {"data-test": "ASK-value"}).text.split(" x ")[1]
     technical_dets["day_low"] = technical_table.find("td", {"data-test": "DAYS_RANGE-value"}).text.split(" - ")[0]
     technical_dets["day_high"] = technical_table.find("td", {"data-test": "DAYS_RANGE-value"}).text.split(" - ")[1]
+    technical_dets["52_week_low"] = technical_table.find("td", {"data-test": "FIFTY_TWO_WK_RANGE-value"}).text.split(" - ")[0]
+    technical_dets["52_week_high"] = technical_table.find("td", {"data-test": "FIFTY_TWO_WK_RANGE-value"}).text.split(" - ")[1]
     #technical_dets["prev_close"] = technical_table.find("td", {"data-test": "PREV_CLOSE-value"}).text
     #technical_dets["prev_close"] = technical_table.find("td", {"data-test": "PREV_CLOSE-value"}).text
 
