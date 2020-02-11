@@ -22,7 +22,7 @@ def main():
         for span in spans:
             if(span.text != "SA News"):
                 news_det["release_date"] = span.text
-        #news_det["release_dt"] = article.find("div", {"class" : "date_on_by"}).text
+        news_det["curr_time"] = eastern.localize(dt.now()).strftime('%Y-%m-%d %H:%M:%S')
         print(news_det)
         print('\n\n')
 
