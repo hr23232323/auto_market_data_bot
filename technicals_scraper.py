@@ -14,6 +14,10 @@ def main():
 
     technical_table = soup.find("div", {"id": "quote-summary"})
     technical_dets = {}
+    #print(soup.find("div", {"id": "quote-header-info"}).findAll("span")[2].text.split(" ")[1].replace("(", "").replace(")", ""))
+    technical_dets["curr_price"] = soup.find("div", {"id": "quote-header-info"}).findAll("span")[1].text
+    technical_dets["price_cng"] = soup.find("div", {"id": "quote-header-info"}).findAll("span")[2].text.split(" ")[0]
+    technical_dets["percent_cng"] = soup.find("div", {"id": "quote-header-info"}).findAll("span")[2].text.split(" ")[1].replace("(", "").replace(")", "")
     technical_dets["prev_close"] = technical_table.find("td", {"data-test": "PREV_CLOSE-value"}).text
     technical_dets["open"] = technical_table.find("td", {"data-test": "OPEN-value"}).text
     technical_dets["bid_val"] = technical_table.find("td", {"data-test": "BID-value"}).text.split(" x ")[0]
