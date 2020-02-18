@@ -26,6 +26,12 @@ def main():
     technical_dets["52_week_high"] = technical_table.find("td", {"data-test": "FIFTY_TWO_WK_RANGE-value"}).text.split(" - ")[1]
     technical_dets["volume"] = technical_table.find("td", {"data-test": "TD_VOLUME-value"}).text
     technical_dets["3m_avg_volume"] = technical_table.find("td", {"data-test": "AVERAGE_VOLUME_3MONTH-value"}).text
+    technical_dets["market_cap"] = technical_table.find("td", {"data-test": "MARKET_CAP-value"}).text
+    technical_dets["5y_m_beta"] = technical_table.find("td", {"data-test": "BETA_5Y-value"}).text
+    technical_dets["pe_ratio"] = technical_table.find("td", {"data-test": "PE_RATIO-value"}).text
+    technical_dets["eps"] = technical_table.find("td", {"data-test": "EPS_RATIO-value"}).text
+    technical_dets["earnings_dt"] = technical_table.find("td", {"data-test": "EARNINGS_DATE-value"}).text
+    technical_dets["1y_target_est"] = technical_table.find("td", {"data-test": "ONE_YEAR_TARGET_PRICE-value"}).text
 
     #technical_dets["prev_close"] = technical_table.find("td", {"data-test": "PREV_CLOSE-value"}).text
     #technical_dets["prev_close"] = technical_table.find("td", {"data-test": "PREV_CLOSE-value"}).text
