@@ -13,8 +13,8 @@ def main():
     soup = BeautifulSoup(res.text, features="lxml")
 
     technical_table = soup.find("div", {"id": "quote-summary"})
+    technicals_df = pd.DataFrame()
     technical_dets = {}
-    #print(soup.find("div", {"id": "quote-header-info"}).findAll("span")[2].text.split(" ")[1].replace("(", "").replace(")", ""))
     technical_dets["curr_price"] = soup.find("div", {"id": "quote-header-info"}).findAll("span")[1].text
     technical_dets["price_cng"] = soup.find("div", {"id": "quote-header-info"}).findAll("span")[2].text.split(" ")[0]
     technical_dets["percent_cng"] = soup.find("div", {"id": "quote-header-info"}).findAll("span")[2].text.split(" ")[1].replace("(", "").replace(")", "")
@@ -36,15 +36,10 @@ def main():
     technical_dets["eps"] = technical_table.find("td", {"data-test": "EPS_RATIO-value"}).text
     technical_dets["earnings_dt"] = technical_table.find("td", {"data-test": "EARNINGS_DATE-value"}).text
     technical_dets["1y_target_est"] = technical_table.find("td", {"data-test": "ONE_YEAR_TARGET_PRICE-value"}).text
+    technical_dets["curr_time"] = eastern.localize(dt.now()).strftime('%Y-%m-%d %H:%M:%S')
+    technicals_df = technicals_df.append(technical_dets,ignore_index=True)
 
-    #technical_dets["prev_close"] = technical_table.find("td", {"data-test": "PREV_CLOSE-value"}).text
-    #technical_dets["prev_close"] = technical_table.find("td", {"data-test": "PREV_CLOSE-value"}).text
-
-    print(technical_dets)
-
-    #for indicator in technicals:
-#        print(indicator.find("td", {"data-test": "OPEN-value"}))
-#        print('\n\n')
+    print(technicals_df)
 
 if __name__ == "__main__":
     main()
