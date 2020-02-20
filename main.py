@@ -15,13 +15,14 @@ def main():
     # scrape for each stock
     for stock in stock_list:
         print(stock)
-        ts(stock)
+        technicals_df = ts(stock)
         time.sleep(1)
-        ps(stock)
+        puts_df = ps(stock)
         time.sleep(1)
-        cs(stock)
+        calls_df = cs(stock)
         time.sleep(1)
 
+        break
 
 
 
