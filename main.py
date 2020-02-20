@@ -15,9 +15,11 @@ def main():
     # scrape for each stock
     for stock in stock_list:
         print(stock)
-        #ts(stock)
-
-
+        ts(stock)
+        time.sleep(1)
+        ps(stock)
+        time.sleep(1)
+        cs(stock)
         time.sleep(1)
 
 
