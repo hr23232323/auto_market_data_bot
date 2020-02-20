@@ -6,7 +6,7 @@ import pytz
 import pandas as pd
 eastern = pytz.timezone('US/Eastern')
 
-def main():
+def scrape(stock_to_pull):
     stock_to_pull = "RDFN"
     base_url = "https://finance.yahoo.com/quote/"+stock_to_pull+"/options?p="+stock_to_pull+"&straddle=false"
     res = requests.get(base_url)
@@ -33,6 +33,4 @@ def main():
         put_det["curr_time"] = eastern.localize(dt.now()).strftime('%Y-%m-%d %H:%M:%S')
         puts_df = puts_df.append(put_det,ignore_index=True)
     print(puts_df)
-
-if __name__ == "__main__":
-    main()
+    return puts_df
