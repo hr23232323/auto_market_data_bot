@@ -2,6 +2,7 @@ import time
 from technicals_scraper import scrape as ts
 from calls_scraper import scrape as cs
 from puts_scraper import scrape as ps
+from excel_writer import append_df_to_excel
 
 def main():
     # text stock list to array
@@ -24,6 +25,8 @@ def main():
 
         break
 
+    # read csv/DB
+    append_df_to_excel('database_text.xlsx', technicals_df, sheet_name='technicals', index=False)
 
 
 if __name__ == "__main__":
