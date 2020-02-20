@@ -6,8 +6,7 @@ import pytz
 import pandas as pd
 eastern = pytz.timezone('US/Eastern')
 
-def main():
-    stock_to_pull = "RDFN"
+def scrape(stock_to_pull):
     base_url = "https://finance.yahoo.com/quote/"+stock_to_pull
     res = requests.get(base_url)
     soup = BeautifulSoup(res.text, features="lxml")
@@ -40,6 +39,7 @@ def main():
     technicals_df = technicals_df.append(technical_dets,ignore_index=True)
 
     print(technicals_df)
+    return technicals_df
 
-if __name__ == "__main__":
-    main()
+#if __name__ == "__main__":
+#    main(stock_to_pull)
