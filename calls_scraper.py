@@ -31,5 +31,5 @@ def scrape(stock_to_pull):
             call_det["itm"] = "N"
         call_det["curr_time"] = eastern.localize(dt.now()).strftime('%Y-%m-%d %H:%M:%S')
         calls_df = calls_df.append(call_det,ignore_index=True)
-    print(calls_df)
+        
     return calls_df

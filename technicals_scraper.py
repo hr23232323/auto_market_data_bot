@@ -37,8 +37,7 @@ def scrape(stock_to_pull):
     technical_dets["1y_target_est"] = technical_table.find("td", {"data-test": "ONE_YEAR_TARGET_PRICE-value"}).text
     technical_dets["curr_time"] = eastern.localize(dt.now()).strftime('%Y-%m-%d %H:%M:%S')
     technicals_df = technicals_df.append(technical_dets,ignore_index=True)
-
-    print(technicals_df)
+    
     return technicals_df
 
 #if __name__ == "__main__":
