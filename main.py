@@ -26,7 +26,7 @@ def main():
         break
 
     # read csv/DB
-    append_df_to_excel('database_text.xlsx', technicals_df, sheet_name='technicals', index=False)
+    append_df_to_excel('database_text.xlsx', technicals_df, sheet_name='technicals', index=False, header=False)
 
 
 if __name__ == "__main__":
