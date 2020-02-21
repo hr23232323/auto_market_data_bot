@@ -16,7 +16,6 @@ def main():
                stock_list.append(word)
 
     # scrape for each stock
-    stock_list = ["AAPL", "TWTR"]
     for stock in stock_list:
         technicals_df = ts(stock)
         time.sleep(random.uniform(0.5, 1.5))
