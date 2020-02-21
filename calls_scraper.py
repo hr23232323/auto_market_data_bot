@@ -16,6 +16,7 @@ def scrape(stock_to_pull):
     calls_df = pd.DataFrame()
     for call in calls:
         call_det = {}
+        call_det["stock_name"] = stock_to_pull
         call_det["strike_price"] = call.find("td", {"class" : "data-col2"}).text
         call_det["last_price"] = call.find("td", {"class" : "data-col3"}).text
         call_det["bid_price"] = call.find("td", {"class" : "data-col4"}).text
@@ -31,5 +32,5 @@ def scrape(stock_to_pull):
             call_det["itm"] = "N"
         call_det["curr_time"] = eastern.localize(dt.now()).strftime('%Y-%m-%d %H:%M:%S')
         calls_df = calls_df.append(call_det,ignore_index=True)
-        
+
     return calls_df

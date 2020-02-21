@@ -16,6 +16,7 @@ def scrape(stock_to_pull):
     puts_df = pd.DataFrame()
     for put in puts:
         put_det = {}
+        put_det["stock_name"] = stock_to_pull
         put_det["strike_price"] = put.find("td", {"class" : "data-col2"}).text
         put_det["last_price"] = put.find("td", {"class" : "data-col3"}).text
         put_det["bid_price"] = put.find("td", {"class" : "data-col4"}).text

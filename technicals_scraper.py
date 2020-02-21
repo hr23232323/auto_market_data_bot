@@ -14,6 +14,7 @@ def scrape(stock_to_pull):
     technical_table = soup.find("div", {"id": "quote-summary"})
     technicals_df = pd.DataFrame()
     technical_dets = {}
+    technical_dets["stock_name"] = stock_to_pull
     technical_dets["curr_price"] = soup.find("div", {"id": "quote-header-info"}).findAll("span")[1].text
     technical_dets["price_cng"] = soup.find("div", {"id": "quote-header-info"}).findAll("span")[2].text.split(" ")[0]
     technical_dets["percent_cng"] = soup.find("div", {"id": "quote-header-info"}).findAll("span")[2].text.split(" ")[1].replace("(", "").replace(")", "")
@@ -37,7 +38,7 @@ def scrape(stock_to_pull):
     technical_dets["1y_target_est"] = technical_table.find("td", {"data-test": "ONE_YEAR_TARGET_PRICE-value"}).text
     technical_dets["curr_time"] = eastern.localize(dt.now()).strftime('%Y-%m-%d %H:%M:%S')
     technicals_df = technicals_df.append(technical_dets,ignore_index=True)
-    
+
     return technicals_df
 
 #if __name__ == "__main__":
