@@ -16,6 +16,7 @@ def main():
                stock_list.append(word)
 
     # scrape for each stock
+    stock_list = ["AAPL", "TWTR"]
     for stock in stock_list:
         technicals_df = ts(stock)
         time.sleep(random.uniform(0.5, 1.5))
@@ -25,16 +26,10 @@ def main():
         time.sleep(random.uniform(0.5, 1.5))
 
         # write to CSV/DB. Only write headers if first time
-        if(path.exists("database_text.xlsx")):
-            append_df_to_excel('database_text.xlsx', technicals_df, sheet_name='technicals' + stock, index=False, header=False)
-            append_df_to_excel('database_text.xlsx', puts_df, sheet_name='puts' + stock, index=False, header=False)
-            append_df_to_excel('database_text.xlsx', calls_df, sheet_name='calls' + stock, index=False, header=False)
-        else:
-            append_df_to_excel('database_text.xlsx', technicals_df, sheet_name='technicals' + stock, index=False)
-            append_df_to_excel('database_text.xlsx', puts_df, sheet_name='puts' + stock, index=False)
-            append_df_to_excel('database_text.xlsx', calls_df, sheet_name='calls' + stock, index=False)
+        append_df_to_excel('database_text.xlsx', technicals_df, sheet_name=stock + '_technicals', index=False)
+        append_df_to_excel('database_text.xlsx', puts_df, sheet_name=stock + '_puts', index=False)
+        append_df_to_excel('database_text.xlsx', calls_df, sheet_name=stock + '_calls', index=False)
 
-        break
 
 
 if __name__ == "__main__":
