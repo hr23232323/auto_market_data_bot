@@ -13,7 +13,6 @@ def scrape(stock_to_pull):
 
     put_table = soup.find("table", {"class": "puts"})
     put_date = put_table.parent.parent.previous_sibling.select('span')[4].text
-    #print(put_date)
     puts = sv.select('tr:has(> td)', put_table)
     puts_df = pd.DataFrame()
     for put in puts:
