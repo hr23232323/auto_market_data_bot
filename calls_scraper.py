@@ -12,7 +12,7 @@ def scrape(stock_to_pull):
     soup = BeautifulSoup(res.text, features="lxml")
 
     call_table = soup.find("table", {"class": "calls"})
-    call_date = call_table.parent.parent.previous_sibling.select('span')[4].text
+    call_date = dt.strptime(call_table.parent.parent.previous_sibling.select('span')[4].text, '%B %d, %Y').date()
     calls = sv.select('tr:has(> td)', call_table)
     calls_df = pd.DataFrame()
     for call in calls:
