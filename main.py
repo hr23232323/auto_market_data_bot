@@ -8,6 +8,7 @@ import random
 
 def main():
     # text stock list to array
+    test = True
     stock_list_txt = open("stock_list.txt", 'r')
     stock_list = []
     with open('stock_list.txt','r') as f:
@@ -16,6 +17,8 @@ def main():
                stock_list.append(word)
 
     # scrape for each stock
+    if(test):
+        stock_list = ['RDFN']
     for stock in stock_list:
         technicals_df = ts(stock)
         time.sleep(random.uniform(0.5, 1.5))
