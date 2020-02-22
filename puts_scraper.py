@@ -12,11 +12,14 @@ def scrape(stock_to_pull):
     soup = BeautifulSoup(res.text, features="lxml")
 
     put_table = soup.find("table", {"class": "puts"})
+    put_date = put_table.parent.parent.previous_sibling.select('span')[4].text
+    #print(put_date)
     puts = sv.select('tr:has(> td)', put_table)
     puts_df = pd.DataFrame()
     for put in puts:
         put_det = {}
         put_det["stock_name"] = stock_to_pull
+        put_det["expiry_date"] = put_date
         put_det["strike_price"] = put.find("td", {"class" : "data-col2"}).text
         put_det["last_price"] = put.find("td", {"class" : "data-col3"}).text
         put_det["bid_price"] = put.find("td", {"class" : "data-col4"}).text
