@@ -9,7 +9,8 @@ import random
 def collect_data():
     # text stock list to array
     print("COLLECTING DATA")
-    test = True
+    print(dt.now())
+    test = False
     stock_list_txt = open("stock_list.txt", 'r')
     stock_list = []
     with open('stock_list.txt','r') as f:
