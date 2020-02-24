@@ -5,7 +5,7 @@ import time
 from data_collector import collect_data
 
 def time_is_between(min_time, max_time):
-    current_time = dt.now().time()
+    to_check_time = dt.now().time()
     if(to_check_time > min_time and to_check_time < max_time):
         return True
     else:
