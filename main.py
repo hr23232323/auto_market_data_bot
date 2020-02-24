@@ -20,6 +20,7 @@ def is_weekday():
 
 def start_day(market_open, market_close):
     print("MARKET STARTED")
+    print(dt.now())
     schedule.every(5).minutes.do(collect_data)
 
     # when to stop
@@ -30,15 +31,23 @@ def start_day(market_open, market_close):
 
 def main():
     market_open = datetime.time(9,30,00)
-    market_close = datetime.time(19,28,00)
+    market_close = datetime.time(16,00,00)
     while 1:
         if(is_weekday()):
+            # If weekend and within market window, start day
             if(time_is_between(market_open, market_close)):
                 start_day(market_open, market_close)
-                time.sleep(86340)
+                # Sleep till start of market next day, print message
+                # in middle to signal the process is running correctly
+                time.sleep(43170)
+                print("COMPLETED DATE")
+                print(dt.now())
+                time.sleep(43170)
         else:
             # Sleep through the weekend, decrease processing
+            print("Weekend- day 1 sleep")
             time.sleep(86340)
+            print("Weekend- day 2 sleep")
             time.sleep(86340)
 
         time.sleep(1)
