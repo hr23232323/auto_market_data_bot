@@ -39,16 +39,16 @@ def main():
                 start_day(market_open, market_close)
                 # Sleep till start of market next day, print message
                 # in middle to signal the process is running correctly
-                time.sleep(43170)
+                time.sleep(40000)
                 print("COMPLETED DATE")
                 print(dt.now())
-                time.sleep(43170)
+                time.sleep(40000)
         else:
             # Sleep through the weekend, decrease processing
             print("Weekend- day 1 sleep")
-            time.sleep(86340)
+            time.sleep(82000)
             print("Weekend- day 2 sleep")
-            time.sleep(86340)
+            time.sleep(82000)
 
         time.sleep(1)
 
