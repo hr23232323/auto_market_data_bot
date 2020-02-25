@@ -21,6 +21,7 @@ def is_weekday():
 def start_day(market_open, market_close):
     print("MARKET STARTED")
     print(dt.now())
+    collect_data()
     schedule.every(5).minutes.do(collect_data)
 
     # when to stop

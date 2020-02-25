@@ -23,14 +23,21 @@ def collect_data():
     if(test):
         stock_list = ['RDFN']
     for stock in stock_list:
-        technicals_df = ts(stock)
-        time.sleep(random.uniform(0.5, 1.5))
-        puts_df = ps(stock)
-        time.sleep(random.uniform(0.5, 1.5))
-        calls_df = cs(stock)
-        time.sleep(random.uniform(0.5, 1.5))
+        try:
+            technicals_df = ts(stock)
+            time.sleep(random.uniform(0.5, 1.5))
+            puts_df = ps(stock)
+            time.sleep(random.uniform(0.5, 1.5))
+            calls_df = cs(stock)
+            time.sleep(random.uniform(0.5, 1.5))
 
-        # write to CSV/DB. Only write headers if first time
-        append_df_to_excel('database_text.xlsx', technicals_df, sheet_name=stock + '_technicals', index=False)
-        append_df_to_excel('database_text.xlsx', puts_df, sheet_name=stock + '_puts', index=False)
-        append_df_to_excel('database_text.xlsx', calls_df, sheet_name=stock + '_calls', index=False)
+            # write to CSV/DB. Only write headers if first time
+            append_df_to_excel('database_text.xlsx', technicals_df, sheet_name=stock + '_technicals', index=False)
+            append_df_to_excel('database_text.xlsx', puts_df, sheet_name=stock + '_puts', index=False)
+            append_df_to_excel('database_text.xlsx', calls_df, sheet_name=stock + '_calls', index=False)
+        except:
+            print("Stock FAILED-")
+            print(stock)
+            print("Time-")
+            print(dt.now())
+            continue
