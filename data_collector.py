@@ -5,6 +5,7 @@ from calls_scraper import scrape as cs
 from puts_scraper import scrape as ps
 from excel_writer import append_df_to_excel
 import random
+from datetime import datetime as dt
 
 def collect_data():
     # text stock list to array
