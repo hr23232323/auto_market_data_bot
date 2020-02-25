@@ -30,7 +30,7 @@ def start_day(market_open, market_close):
 
 
 def main():
-    market_open = datetime.time(9,30,00)
+    market_open = datetime.time(9,00,00)
     market_close = datetime.time(16,00,00)
     while 1:
         if(is_weekday()):
