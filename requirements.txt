@@ -1,4 +1,4 @@
-requests==2.20.1
+requests==2.31.0
 BeautifulSoup==4.6.3
 soupsieve==1.9.5
 pytz==2018.7
